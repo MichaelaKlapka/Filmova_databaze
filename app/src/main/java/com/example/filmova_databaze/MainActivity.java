@@ -2,7 +2,10 @@ package com.example.filmova_databaze;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
         OurAdapter adapter = new OurAdapter(this, films);
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this,films.get(position).title,Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

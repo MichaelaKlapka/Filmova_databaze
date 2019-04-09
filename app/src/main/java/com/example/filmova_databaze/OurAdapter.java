@@ -29,12 +29,13 @@ public class OurAdapter extends ArrayAdapter {
         View rowView = inflater.inflate(R.layout.list_item, null, true);
         //ziskam reference na views v xml
         TextView title = rowView.findViewById(R.id.title);
-        TextView info = rowView.findViewById(R.id.info);
+        TextView type = rowView.findViewById(R.id.type);
+        TextView rating = rowView.findViewById(R.id.rating);
         ImageView image = rowView.findViewById(R.id.image);
         //nevytahuju rovnou z aktivity, ale z rowView - dama tam data z listu - nemusim delat po jednom
         title.setText(films.get(position).title);
-        info.setText(films.get(position).type);
-        info.setText(films.get(position).rating);
+        type.setText(films.get(position).type);
+        rating.setText(films.get(position).rating);
         image.setImageResource(films.get(position).image);
 
         return rowView;
