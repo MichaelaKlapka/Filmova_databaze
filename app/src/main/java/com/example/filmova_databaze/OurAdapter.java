@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class OurAdapter extends ArrayAdapter {
@@ -32,11 +34,11 @@ public class OurAdapter extends ArrayAdapter {
         TextView type = rowView.findViewById(R.id.type);
         TextView rating = rowView.findViewById(R.id.rating);
         ImageView image = rowView.findViewById(R.id.image);
+        Glide.with(activity).load(films.get(position).image).into(image);
         //nevytahuju rovnou z aktivity, ale z rowView - dama tam data z listu - nemusim delat po jednom
         title.setText(films.get(position).title);
         type.setText(films.get(position).type);
         rating.setText(films.get(position).rating);
-        image.setImageResource(films.get(position).image);
 
         return rowView;
         //kdyz mam view tak musim na konci vratit nejake view - naplnime do rowView
